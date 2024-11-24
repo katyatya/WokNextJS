@@ -49,22 +49,17 @@ async function up() {
 			{
 				name: 'Болгарский перец',
 				price: 60,
-				imageUrl: '',
+				imageUrl: '/pepper.png',
 			},
 			{
 				name: 'Халапеньо',
 				price: 70,
-				imageUrl: '',
+				imageUrl: '/jalapeno.png',
 			},
 			{
 				name: 'Шампиньоны',
 				price: 70,
-				imageUrl: '',
-			},
-			{
-				name: 'Ананасы',
-				price: 70,
-				imageUrl: '',
+				imageUrl: '/mashroom.png',
 			},
 			{
 				name: 'Говядина',
@@ -79,17 +74,17 @@ async function up() {
 			{
 				name: 'Куриная грудка',
 				price: 109,
-				imageUrl: '',
+				imageUrl: '/chiken.png',
 			},
 			{
 				name: 'Креветки',
 				price: 209,
-				imageUrl: '',
+				imageUrl: '/shrimp.png',
 			},
 			{
 				name: 'Лук',
 				price: 100,
-				imageUrl: '',
+				imageUrl: '/onion.png',
 			},
 		],
 	})
@@ -106,7 +101,7 @@ async function up() {
 					{ id: 3 },
 					{ id: 4 },
 					{ id: 7 },
-					{ id: 9 },
+					{ id: 8 },
 				],
 			},
 		},
@@ -123,7 +118,7 @@ async function up() {
 					{ id: 3 },
 					{ id: 4 },
 					{ id: 5 },
-					{ id: 9 },
+					{ id: 8 },
 				],
 			},
 		},
@@ -132,7 +127,7 @@ async function up() {
 	const wok3 = await prisma.product.create({
 		data: {
 			name: 'Удон с овощами',
-			imageUrl: '/app/public/udon_chiken.jpeg',
+			imageUrl: '/udon_chiken.jpeg',
 			categoryId: 1,
 			ingredients: {
 				connect: [
@@ -144,7 +139,6 @@ async function up() {
 					{ id: 6 },
 					{ id: 7 },
 					{ id: 8 },
-					{ id: 9 },
 				],
 			},
 		},
@@ -152,7 +146,7 @@ async function up() {
 	const wok4 = await prisma.product.create({
 		data: {
 			name: 'Удон с овощами',
-			imageUrl: '/app/public/udon_chiken.jpeg',
+			imageUrl: '/udon_chiken.jpeg',
 			categoryId: 2,
 			ingredients: {
 				connect: [
@@ -164,9 +158,15 @@ async function up() {
 					{ id: 6 },
 					{ id: 7 },
 					{ id: 8 },
-					{ id: 9 },
 				],
 			},
+		},
+	})
+	const lit = await prisma.product.create({
+		data: {
+			name: 'LitEnergy',
+			imageUrl: '/lit_zeroshugar.png',
+			categoryId: 3,
 		},
 	})
 
@@ -175,77 +175,69 @@ async function up() {
 			//wok1
 			{
 				productId: wok1.id,
-				size: 'm',
+				size: 'S',
 				wokType: 1,
 				price: 350,
 			},
 			{
 				productId: wok1.id,
-				size: 'm',
+				size: 'S',
 				wokType: 2,
 				price: 380,
 			},
 			{
 				productId: wok1.id,
-				size: 'l',
+				size: 'M',
 				wokType: 1,
 				price: 480,
 			},
 			{
 				productId: wok1.id,
-				size: 'l',
+				size: 'M',
 				wokType: 2,
 				price: 490,
 			},
 			//wok2
 			{
+				productId: lit.id,
+				price: 120,
+			},
+			{
 				productId: wok2.id,
-				size: 'm',
+				size: 'S',
 				wokType: 1,
 				price: 370,
 			},
 			{
 				productId: wok2.id,
-				size: 'm',
-				wokType: 2,
-				price: 400,
-			},
-			{
-				productId: wok2.id,
-				size: 'l',
+				size: 'M',
 				wokType: 1,
 				price: 490,
-			},
-			{
-				productId: wok2.id,
-				size: 'l',
-				wokType: 2,
-				price: 510,
 			},
 			//wok3
 			{
 				productId: wok3.id,
-				size: 'm',
+				size: 'S',
 				wokType: 1,
 				price: 290,
 			},
 
 			{
 				productId: wok3.id,
-				size: 'l',
+				size: 'M',
 				wokType: 1,
 				price: 350,
 			},
 			{
 				productId: wok4.id,
-				size: 'm',
+				size: 'S',
 				wokType: 1,
 				price: 290,
 			},
 
 			{
 				productId: wok4.id,
-				size: 'l',
+				size: 'S',
 				wokType: 1,
 				price: 350,
 			},

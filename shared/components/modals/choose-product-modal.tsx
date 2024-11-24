@@ -26,9 +26,18 @@ export const ChooseProductModal: React.FC<Props> = ({ product, className }) => {
 				)}
 			>
 				{isWokForm ? (
-					<ChooseWokForm imageUrl={product.imageUrl} name={product.name} />
+					<ChooseWokForm
+						imageUrl={product.imageUrl}
+						name={product.name}
+						ingredients={product.ingredients}
+						variations={product.variations}
+					/>
 				) : (
-					<ChooseProductForm imageUrl={product.imageUrl} name={product.name} />
+					<ChooseProductForm
+						imageUrl={product.imageUrl}
+						name={product.name}
+						variations={product.variations}
+					/>
 				)}
 			</DialogContent>
 		</Dialog>
