@@ -21,8 +21,9 @@ interface Props {
 	name: string
 	ingredients: Ingredient[]
 	variations: ProductVariation[]
-	onClickAddCart?: VoidFunction
+	onSubmit: (itemId: number, ingredients: number[]) => void
 	className?: string
+	loading: boolean
 }
 
 export const ChooseWokForm: React.FC<Props> = ({
@@ -31,7 +32,8 @@ export const ChooseWokForm: React.FC<Props> = ({
 	name,
 	ingredients,
 	variations,
-	onClickAddCart,
+	loading,
+	onSubmit,
 }) => {
 	const [size, setSize] = React.useState<WokSize>('M')
 	const [type, setType] = React.useState<WokType>(1)
@@ -58,6 +60,16 @@ export const ChooseWokForm: React.FC<Props> = ({
 			? { ...item, disabled: false }
 			: { ...item, disabled: true }
 	)
+
+	const currentItemId = variations.find(
+		item => item.wokType === type && item.size === size
+	)?.id
+
+	const handleClickAdd = () => {
+		if (currentItemId) {
+			onSubmit(currentItemId, Array.from(selectedIngredientId))
+		}
+	}
 
 	return (
 		<div className={cn('flex flex-1', className)}>
@@ -95,7 +107,12 @@ export const ChooseWokForm: React.FC<Props> = ({
 						))}
 					</div>
 				</div>
-				<Button className={'mt-7 text-lg'} size={'lg'}>
+				<Button
+					loading={loading}
+					className={'mt-7 text-lg'}
+					size={'lg'}
+					onClick={handleClickAdd}
+				>
 					Добавить в корзину за {totalPrice}₽
 				</Button>
 			</div>

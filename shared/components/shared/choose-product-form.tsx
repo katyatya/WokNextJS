@@ -6,10 +6,12 @@ import { cn } from '@/shared/lib/utils'
 import { ProductVariation } from '@prisma/client'
 
 interface Props {
-	imageUrl: string //почему не целый обьект продукта ?
+	imageUrl: string //TODO почему не целый обьект продукта ?
 	name: string
 	className?: string
 	variations: ProductVariation[]
+	loading: boolean
+	onSubmit?: VoidFunction
 }
 
 export const ChooseProductForm: React.FC<Props> = ({
@@ -17,6 +19,8 @@ export const ChooseProductForm: React.FC<Props> = ({
 	imageUrl,
 	name,
 	variations,
+	loading,
+	onSubmit,
 }) => {
 	return (
 		<div className={cn('flex flex-1', className)}>
@@ -33,7 +37,12 @@ export const ChooseProductForm: React.FC<Props> = ({
 			</div>
 			<div className={'p-7 bg-[#f5f5f5] w-[400px]'}>
 				<Title className={'font-bold'} size={'sm'} text={name} />
-				<Button className={'mt-10'} size={'lg'}>
+				<Button
+					loading={loading}
+					className={'mt-10'}
+					size={'lg'}
+					onClick={() => onSubmit?.()}
+				>
 					Добавить в корзину за {variations[0].price}
 				</Button>
 			</div>

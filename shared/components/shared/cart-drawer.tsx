@@ -20,11 +20,28 @@ import { useCartStore } from '@/shared/store/cart'
 import { WokSize, WokType } from '@/shared/constans/wok'
 
 export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
-	const [fetchCartItems, totalAmount, items] = useCartStore(state => [
+	const [
+		fetchCartItems,
+		updateItemQuantity,
+		removeCartItem,
+		totalAmount,
+		items,
+	] = useCartStore(state => [
 		state.fetchCartItems,
+		state.updateItemQuantity,
+		state.removeCartItem,
 		state.totalAmount,
 		state.items,
 	])
+
+	const onClickCountButton = (
+		id: number,
+		quantity: number,
+		type: 'plus' | 'minus'
+	) => {
+		let newQuantity = type === 'minus' ? quantity - 1 : quantity + 1
+		updateItemQuantity(id, newQuantity)
+	}
 
 	React.useEffect(() => {
 		fetchCartItems()
@@ -61,6 +78,10 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
 									name={item.name}
 									price={item.price}
 									quantity={item.quantity}
+									onClickCountButton={type =>
+										onClickCountButton(item.id, item.quantity, type)
+									}
+									onClickRemove={() => removeCartItem(item.id)}
 								/>
 							</div>
 						))}
