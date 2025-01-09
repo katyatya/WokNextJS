@@ -4,6 +4,7 @@ import React from 'react'
 import { Title } from './title'
 import { Button } from '../ui'
 import { Plus } from 'lucide-react'
+import { Ingredient } from '@prisma/client'
 
 interface Props {
 	className?: string
@@ -11,6 +12,7 @@ interface Props {
 	name: string
 	price: number
 	id: number
+	ingredients?: Ingredient[]
 }
 
 export const ProductCard: React.FC<Props> = ({
@@ -19,6 +21,7 @@ export const ProductCard: React.FC<Props> = ({
 	name,
 	price,
 	id,
+	ingredients,
 }) => {
 	return (
 		<div className={className}>
@@ -28,8 +31,8 @@ export const ProductCard: React.FC<Props> = ({
 				</div>
 				<Title text={name} className='font-bold my-2 ' />
 
-				<p>
-					Oписание товара со всяким содержимым.... тут важная инфа ля ля ля{' '}
+				<p className='break-all text-gray-400'>
+					{ingredients?.map(ingredient => ingredient.name).join(' , ')}
 				</p>
 
 				<div>

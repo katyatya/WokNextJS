@@ -34,17 +34,6 @@ export const Filters: React.FC<Props> = ({ className }) => {
 				]}
 			/>
 
-			<CheckboxFilter
-				title='Размеры'
-				className='mb-5'
-				onClickCheckbox={filters.setSizes}
-				selectedValues={filters.selectedSizes}
-				items={[
-					{ text: 'S', value: '1' },
-					{ text: 'M', value: '2' },
-				]}
-			/>
-
 			<div className='mt-7 mb-12'>
 				<p className='font-bold'>Цена</p>
 				<div className='flex  py-4'>

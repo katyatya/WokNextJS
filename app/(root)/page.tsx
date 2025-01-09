@@ -5,21 +5,17 @@ import {
 	Title,
 	TopBar,
 } from '@/shared/components/shared'
-import { prisma } from '@/prisma/prisma-client'
 import { Suspense } from 'react'
+import { findWoks, GetSearchParams } from '@/shared/lib/find-woks'
 
-export default async function Home() {
-	const categories = await prisma.category.findMany({
-		include: {
-			products: {
-				include: {
-					ingredients: true,
-					variations: true,
-				},
-			},
-		},
-	})
-
+export default async function Home({
+	searchParams,
+}: {
+	searchParams: GetSearchParams
+}) {
+	const categories = await findWoks(searchParams)
+	const isEmpty =
+		categories.filter(item => item.products.length > 0).length == 0
 	return (
 		<>
 			<Container className='mt-5'>
@@ -36,21 +32,27 @@ export default async function Home() {
 							<Filters />
 						</Suspense>
 					</div>
-					<div className='flex-1'>
-						<div className='flex flex-col gap-11'>
-							{categories.map(
-								category =>
-									category.products.length > 0 && (
-										<ProductGroupList
-											key={category.id}
-											title={category.name}
-											items={category.products}
-											categoryId={category.id}
-										/>
-									)
-							)}
+					{isEmpty ? (
+						<div className='text-xl  flex justify-center items-center w-full '>
+							<p>К сожалению товаров с таким фильтром нет 😓</p>
 						</div>
-					</div>
+					) : (
+						<div className='flex-1'>
+							<div className='flex flex-col gap-11'>
+								{categories.map(
+									category =>
+										category.products.length > 0 && (
+											<ProductGroupList
+												key={category.id}
+												title={category.name}
+												items={category.products}
+												categoryId={category.id}
+											/>
+										)
+								)}
+							</div>
+						</div>
+					)}
 				</div>
 			</Container>
 		</>

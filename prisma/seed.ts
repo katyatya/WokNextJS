@@ -127,7 +127,7 @@ async function up() {
 	const wok3 = await prisma.product.create({
 		data: {
 			name: 'Удон с овощами',
-			imageUrl: '/udon_chiken.jpeg',
+			imageUrl: '/udon_chiken.jpg',
 			categoryId: 1,
 			ingredients: {
 				connect: [
@@ -146,7 +146,7 @@ async function up() {
 	const wok4 = await prisma.product.create({
 		data: {
 			name: 'Удон с овощами',
-			imageUrl: '/udon_chiken.jpeg',
+			imageUrl: '/udon_chiken.jpg',
 			categoryId: 2,
 			ingredients: {
 				connect: [
