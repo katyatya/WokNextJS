@@ -1,18 +1,18 @@
-// 'use client';
+'use client'
 
-// import React from 'react';
-// import { AddressSuggestions } from 'react-dadata';
-// import 'react-dadata/dist/react-dadata.css';
+import React from 'react'
+import { AddressSuggestions } from 'react-dadata'
+import '/app/globals.css'
 
-// interface Props {
-//   onChange?: (value?: string) => void;
-// }
+interface Props {
+	onChange?: (value?: string) => void
+}
 
-// export const AdressInput: React.FC<Props> = ({ onChange }) => {
-//   return (
-//     <AddressSuggestions
-//       token="b5b8bb983ddcd08648080e0271d9dd367bb7aa65"
-//       onChange={(data) => onChange?.(data?.value)}
-//     />
-//   );
-// };
+export const AdressInput: React.FC<Props> = ({ onChange }) => {
+	return (
+		<AddressSuggestions
+			token='6417c7f46b24086811637be6ef3ca941561519ed'
+			onChange={data => onChange?.(data?.value)}
+		/>
+	)
+}

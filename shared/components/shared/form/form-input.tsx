@@ -1,3 +1,4 @@
+import React from 'react'
 import { cn } from '@/shared/lib/utils'
 import { RequiredSymbol } from '../required-symbol'
 import { Input } from '../../ui'
@@ -16,6 +17,7 @@ export const FormInput: React.FC<Props> = ({
 	name,
 	label,
 	required,
+
 	...props
 }) => {
 	const {
@@ -24,11 +26,41 @@ export const FormInput: React.FC<Props> = ({
 		watch,
 		setValue,
 	} = useFormContext()
+
 	const value = watch(name)
 	const errorText = errors[name]?.message as string
 	const onClickClear = () => {
 		setValue(name, '')
 	}
+	const formatPhoneNumber = (value: string): string => {
+		const formattedValue =
+			value
+				.replace(/[^\d+]/g, '')
+				.match(/(\+7)?(\d{0,3})?(\d{0,3})?(\d{0,2})?(\d{0,2})?/) || []
+		const formattedString = [
+			formattedValue[1],
+			formattedValue[2],
+			formattedValue[3],
+			formattedValue[4],
+			formattedValue[5],
+		]
+			.filter(Boolean)
+			.join('-')
+
+		return formattedString.startsWith('+7')
+			? formattedString
+			: `+7${formattedString}`
+	}
+
+	React.useEffect(() => {
+		if (name == 'phone' && value) {
+			const formattedValue = formatPhoneNumber(value)
+			if (formattedValue !== value) {
+				setValue(name, formattedValue)
+			}
+		}
+	}, [value])
+
 	return (
 		<div className={cn(className)}>
 			{label && (

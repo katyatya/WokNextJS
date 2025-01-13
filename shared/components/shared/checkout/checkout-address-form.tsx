@@ -1,7 +1,7 @@
-// 'use client';
-
-import { FormTextarea, WhiteBlock } from '..'
-import { Input, Textarea } from '../../ui'
+import { Controller, useFormContext } from 'react-hook-form'
+import { AdressInput, ErrorText, FormTextarea, WhiteBlock } from '..'
+import { Input } from '../../ui'
+import { cn } from '@/shared/lib/utils'
 
 // import React from 'react';
 // import { WhiteBlock } from '../white-block';
@@ -20,16 +20,16 @@ import { Input, Textarea } from '../../ui'
 //   return (
 //     <WhiteBlock title="3. Адрес доставки" className={className}>
 //       <div className="flex flex-col gap-5">
-//         <Controller
-//           control={control}
-//           name="address"
-//           render={({ field, fieldState }) => (
-//             <>
-//               <AdressInput onChange={field.onChange} />
-//               {fieldState.error?.message && <ErrorText text={fieldState.error.message} />}
-//             </>
-//           )}
-//         />
+// <Controller
+//   control={control}
+//   name="address"
+//   render={({ field, fieldState }) => (
+//     <>
+//       <AdressInput onChange={field.onChange} />
+//       {fieldState.error?.message && <ErrorText text={fieldState.error.message} />}
+//     </>
+//   )}
+// />
 
 //         <FormTextarea
 //           name="comment"
@@ -44,15 +44,29 @@ import { Input, Textarea } from '../../ui'
 interface Props {
 	className?: string
 }
-export const CheckoutAddressForm: React.FC<Props> = () => {
+export const CheckoutAddressForm: React.FC<Props> = ({ className }) => {
+	const { control } = useFormContext()
 	return (
-		<WhiteBlock title='3. Адресс доставки '>
+		<WhiteBlock title='3. Адресс доставки ' className={className}>
 			<div className='flex flex-col gap-5'>
+				<Controller
+					control={control}
+					name='address'
+					render={({ field, fieldState }) => (
+						<>
+							<AdressInput onChange={field.onChange} />
+							{fieldState.error?.message && (
+								<ErrorText text={fieldState.error.message} />
+							)}
+						</>
+					)}
+				/>
+
 				<FormTextarea
 					className='text-base'
 					placeholder='Комментарий к заказу'
 					rows={5}
-					name='comments'
+					name='comment'
 				/>
 				<Input></Input>
 			</div>
