@@ -62,7 +62,7 @@ export const CheckoutSidebar: React.FC<Props> = ({
 			<Button
 				className='w-full text-base h-12 mt-4'
 				type='submit'
-				disabled={loading}
+				loading={loading}
 			>
 				Перейти к оплате <ArrowRight size={16} className='ml-3' />
 			</Button>

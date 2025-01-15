@@ -13,8 +13,12 @@ import {
 import { UseCart } from '@/shared/hooks'
 import { CheckoutAddressForm, TCheckoutForm } from '@/shared/components/shared'
 import { cn } from '@/shared/lib/utils'
+import { createOrder } from '@/app/actions'
+import toast from 'react-hot-toast'
+import { useState } from 'react'
 
 export default function CheckoutPage() {
+	const [submitting, setSubmitting] = useState(false)
 	const { totalAmount, items, removeCartItem, updateItemQuantity, loading } =
 		UseCart()
 
@@ -30,8 +34,20 @@ export default function CheckoutPage() {
 		},
 	})
 
-	const onSubmit = (data: TCheckoutForm) => {
-		console.log(data)
+	const onSubmit = async (data: TCheckoutForm) => {
+		try {
+			setSubmitting(true)
+			const url = await createOrder(data)
+			toast.success('Заказ успешно оформлен! Переход на оплату.....')
+			if (url) {
+				location.href = url
+			}
+		} catch (error) {
+			setSubmitting(false)
+			toast.error('Не удалось создать заказ', {
+				icon: '😪',
+			})
+		}
 	}
 
 	//TODO: вынести onClickCountButton отсюда и cart-drawer.tsx
@@ -64,7 +80,10 @@ export default function CheckoutPage() {
 							/>
 						</div>
 						<div className='w-[450px]'>
-							<CheckoutSidebar totalAmount={totalAmount} loading={loading} />
+							<CheckoutSidebar
+								totalAmount={totalAmount}
+								loading={loading || submitting}
+							/>
 						</div>
 					</div>
 				</form>
