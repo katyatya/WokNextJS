@@ -75,7 +75,7 @@ export const useCartStore = create<CartState>((set, get) => ({
 			set({ error: true })
 		} finally {
 			set(state => ({
-				loading: true,
+				loading: false,
 				items: state.items.map(item =>
 					item.id == id ? { ...item, disabled: false } : item
 				),

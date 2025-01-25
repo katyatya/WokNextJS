@@ -49,17 +49,17 @@ async function up() {
 			{
 				name: 'Болгарский перец',
 				price: 60,
-				imageUrl: '/pepper.png',
+				imageUrl: '/assets/images//pepper.png',
 			},
 			{
 				name: 'Халапеньо',
 				price: 70,
-				imageUrl: '/jalapeno.png',
+				imageUrl: '/assets/images//jalapeno.png',
 			},
 			{
 				name: 'Шампиньоны',
 				price: 70,
-				imageUrl: '/mashroom.png',
+				imageUrl: '/assets/images/mashroom.png',
 			},
 			{
 				name: 'Говядина',
@@ -74,17 +74,17 @@ async function up() {
 			{
 				name: 'Куриная грудка',
 				price: 109,
-				imageUrl: '/chiken.png',
+				imageUrl: '/assets/images/chiken.png',
 			},
 			{
 				name: 'Креветки',
 				price: 209,
-				imageUrl: '/shrimp.png',
+				imageUrl: '/assets/images//shrimp.png',
 			},
 			{
 				name: 'Лук',
 				price: 100,
-				imageUrl: '/onion.png',
+				imageUrl: '/assets/images//onion.png',
 			},
 		],
 	})
@@ -92,7 +92,7 @@ async function up() {
 	const wok1 = await prisma.product.create({
 		data: {
 			name: 'Удон с курицей',
-			imageUrl: '/udon_chiken.jpg',
+			imageUrl: '/assets/images/udon_chiken.jpg',
 			categoryId: 1,
 			ingredients: {
 				connect: [
@@ -109,7 +109,7 @@ async function up() {
 	const wok2 = await prisma.product.create({
 		data: {
 			name: 'Удон с говядиной',
-			imageUrl: '/udon_chiken.jpg',
+			imageUrl: '/assets/images/udon_chiken.jpg',
 			categoryId: 1,
 			ingredients: {
 				connect: [
@@ -127,7 +127,7 @@ async function up() {
 	const wok3 = await prisma.product.create({
 		data: {
 			name: 'Удон с овощами',
-			imageUrl: '/udon_chiken.jpg',
+			imageUrl: '/assets/images/udon_chiken.jpg',
 			categoryId: 1,
 			ingredients: {
 				connect: [
@@ -146,7 +146,7 @@ async function up() {
 	const wok4 = await prisma.product.create({
 		data: {
 			name: 'Удон с овощами',
-			imageUrl: '/udon_chiken.jpg',
+			imageUrl: '/assets/images/udon_chiken.jpg',
 			categoryId: 2,
 			ingredients: {
 				connect: [
@@ -165,7 +165,7 @@ async function up() {
 	const lit = await prisma.product.create({
 		data: {
 			name: 'LitEnergy',
-			imageUrl: '/lit_zeroshugar.png',
+			imageUrl: '/assets/images/lit_zeroshugar.png',
 			categoryId: 3,
 		},
 	})

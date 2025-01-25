@@ -13,10 +13,10 @@ model User {
 
   fullName String
   email    String @unique @default("")
-  password String 
+  password String?
 
   role UserRole   @default(USER)
-  verified DateTime
+  verified DateTime?
   provider String? 
   providerId String?
 

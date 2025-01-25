@@ -6,16 +6,19 @@ import { CartDrawer } from './cart-drawer'
 import { useCartStore } from '@/shared/store/cart'
 interface Props {
 	className?: string
+	loading?: boolean
 }
 export const CartButton: React.FC<Props> = () => {
-	const [totalAmount, items] = useCartStore(state => [
+	const [totalAmount, items, loading] = useCartStore(state => [
 		state.totalAmount,
 		state.items,
+		state.loading,
 	])
 	const count = items.reduce((acc, item) => acc + item.quantity, 0)
+	console.log(loading)
 	return (
 		<CartDrawer>
-			<Button className='group relative'>
+			<Button loading={loading} className='group relative'>
 				<b>{totalAmount} p</b>
 				<span className='bg-white/30 h-full mx-3 w-[1px]' />
 				<div className='flex items-center gap-2 transition duration-300 group-hover:opacity-0'>
