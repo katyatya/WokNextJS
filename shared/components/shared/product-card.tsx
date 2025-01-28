@@ -3,7 +3,6 @@ import Link from 'next/link'
 import React from 'react'
 import { Title } from './title'
 import { Button } from '../ui'
-import { Plus } from 'lucide-react'
 import { Ingredient } from '@prisma/client'
 
 interface Props {
@@ -35,15 +34,14 @@ export const ProductCard: React.FC<Props> = ({
 					{ingredients?.map(ingredient => ingredient.name).join(' , ')}
 				</p>
 
-				<div>
+				<div className='flex justify-between'>
 					<span className='text-[20px]'>
 						от <b>{price}</b>
 					</span>
 					<Button
 						variant='secondary'
-						className='text-base font-bold text-primary'
+						className='text-base font-bold text-primary hover:bg-orange-100'
 					>
-						<Plus size={15} />
 						<p>Добавить</p>
 					</Button>
 				</div>

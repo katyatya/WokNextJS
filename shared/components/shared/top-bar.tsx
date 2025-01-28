@@ -2,7 +2,6 @@ import { cn } from '@/shared/lib/utils'
 import React from 'react'
 import { Container } from './container'
 import { Categories } from './categories'
-import { SortPopup } from './popup'
 import { Category } from '@prisma/client'
 
 interface Props {
@@ -12,10 +11,14 @@ interface Props {
 
 export const TopBar: React.FC<Props> = ({ categories, className }) => {
 	return (
-		<div className={cn('sticky top-0 p-2 shadow-lg shadow-black/5', className)}>
+		<div
+			className={cn(
+				'sticky top-0 p-2 shadow-lg shadow-black/5 bg-white z-10',
+				className
+			)}
+		>
 			<Container>
 				<Categories items={categories} />
-				<SortPopup />
 			</Container>
 		</div>
 	)

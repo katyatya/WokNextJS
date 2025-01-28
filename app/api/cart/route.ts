@@ -52,7 +52,6 @@ export async function POST(req: NextRequest) {
 		const userCart = await findOrCreateCart(token)
 		const data = (await req.json()) as CreateCartItemValuesDTO
 		// TODO пофиксить баг с добавлением одинаковой пиццы
-
 		// const findCartArray = await prisma.cartItem.findMany({
 		// 	where: {
 		// 		cartId: userCart.id,
