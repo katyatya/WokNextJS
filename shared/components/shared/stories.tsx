@@ -42,29 +42,27 @@ export const Stories: React.FC<Props> = ({ className }) => {
 			<Container
 				className={cn(
 					className,
-					'flex items-center justify-between gap-5 my-10'
+					'flex items-center flex-nowrap md:flex-wrap sm:flex-wrap max-sm:flex-wrap justify-between gap-5 lg:gap-4 md:gap-1  max-sm:gap-[2px] my-10'
 				)}
 			>
 				{stories.length == 0 &&
 					[...Array(6)].map((_, index) => (
 						<div
 							key={index}
-							className='w-52 h-60 animate-pulse bg-gray-200 rounded-md'
+							className='w-48 h-60 lg:w-44 lg:h-56 md:w-32 md:h-40 sm:w-32 sm:h-40 max-sm:w-28 max-sm:h-32 animate-pulse bg-gray-200 rounded-md'
 						></div>
 					))}
 				{stories.map((story, index) => (
 					<img
 						key={index}
 						onClick={() => onClickStory(story)}
-						className='rounded-md cursor-pointer'
-						height={250}
-						width={200}
+						className='rounded-md cursor-pointer w-48 lg:w-44 md:w-32 sm:w-32 max-sm:w-28'
 						src={story.previewImageUrl}
 					></img>
 				))}
 				{open && (
 					<div className='absolute left-0 top-0 w-full h-full bg-black/80 flex items-center justify-center z-30'>
-						<div className='relative ' style={{ width: 520 }}>
+						<div className='relative '>
 							<button
 								className='absolute -right-10 -top-5 z-30'
 								onClick={() => setOpen(false)}
@@ -79,8 +77,8 @@ export const Stories: React.FC<Props> = ({ className }) => {
 									[]
 								}
 								defaultInterval={3000}
-								width={500}
-								height={700}
+								width={'60vh'}
+								height={'80vh'}
 							/>
 						</div>
 					</div>

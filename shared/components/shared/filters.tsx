@@ -1,8 +1,10 @@
 'use client'
+
 import React from 'react'
 import { CheckboxFilter, Title } from '.'
 import { Input, RangeSlider } from '../ui'
 import { useQueryFilters, useFilters, useIngredients } from '@/shared/hooks'
+import { cn } from '@/shared/lib/utils'
 
 interface Props {
 	className?: string
@@ -18,7 +20,7 @@ export const Filters: React.FC<Props> = ({ className }) => {
 	}
 
 	return (
-		<div className={className}>
+		<div className={cn(className)}>
 			<Title text='Фильтрация' size='sm' className='font-bold ' />
 
 			<CheckboxFilter

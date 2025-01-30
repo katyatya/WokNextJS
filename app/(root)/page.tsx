@@ -29,7 +29,7 @@ export default async function Home({
 
 			<Container className='mt-10'>
 				<div className='flex gap-[60px]'>
-					<div className='w-[250px]'>
+					<div className='w-[250px] md:inline-block sm:hidden max-sm:hidden '>
 						<Suspense>
 							<Filters />
 						</Suspense>

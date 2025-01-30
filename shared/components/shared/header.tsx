@@ -7,7 +7,6 @@ import { Container } from './container'
 import Image from 'next/image'
 import { AuthModal, CartButton, ProfileButton, SearchInput } from '.'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useSession } from 'next-auth/react'
 import toast from 'react-hot-toast'
 
 interface Props {
@@ -22,7 +21,6 @@ export const Header: React.FC<Props> = ({
 	const [openAuthModal, setOpenAuthModal] = React.useState(false)
 	const router = useRouter()
 	const searchParams = useSearchParams()
-	const { data: session } = useSession()
 
 	React.useEffect(() => {
 		let toastMessage = ''
@@ -49,7 +47,13 @@ export const Header: React.FC<Props> = ({
 			<Container className='flex items-center justify-between py-8'>
 				<Link href='/'>
 					<div className='flex items-center gap-3'>
-						<Image src='/geisha.png' alt='logo' width={80} height={80} />
+						<Image
+							src='/geisha.png'
+							alt='logo'
+							width={80}
+							height={80}
+							id={'geisha'}
+						/>
 						<div>
 							<h1 className='text-2xl uppercase font-black'>Wok</h1>
 							<p className='text-sm text-gray-400 leading-3'>Master</p>
@@ -57,7 +61,7 @@ export const Header: React.FC<Props> = ({
 					</div>
 				</Link>
 				{hasSearchAndCart && (
-					<div className='mx-16 flex-1'>
+					<div className=' flex-1'>
 						<SearchInput />
 					</div>
 				)}
