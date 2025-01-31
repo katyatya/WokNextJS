@@ -1,7 +1,6 @@
-'use client'
-
 import { prisma } from '@/prisma/prisma-client'
 import { NextRequest, NextResponse } from 'next/server'
+export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
 	try {
@@ -39,6 +38,9 @@ export async function GET(req: NextRequest) {
 		return NextResponse.redirect(new URL('/?verified', req.url))
 	} catch (error) {
 		console.error(error)
-		console.log('[VERIFY_GET] Server error', error)
+		return NextResponse.json(
+			{ message: '[VERIFY_GET] Server error' },
+			{ status: 500 }
+		)
 	}
 }
