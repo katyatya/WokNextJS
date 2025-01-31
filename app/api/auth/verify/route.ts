@@ -1,3 +1,5 @@
+'use client'
+
 import { prisma } from '@/prisma/prisma-client'
 import { NextRequest, NextResponse } from 'next/server'
 
