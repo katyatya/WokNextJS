@@ -69,7 +69,6 @@ export default function CheckoutPage() {
 		}
 	}
 
-	//TODO: вынести onClickCountButton отсюда и cart-drawer.tsx
 	const onClickCountButton = (
 		id: number,
 		quantity: number,

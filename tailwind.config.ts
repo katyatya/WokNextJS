@@ -18,7 +18,6 @@ const config = {
 				'max-sm': { max: '768px' },
 				'max-md': { max: '992px' },
 				'max-lg': { max: '1200px' },
-				// '2xl': '1400px',
 			},
 		},
 		extend: {

@@ -15,7 +15,6 @@ export const CartButton: React.FC<Props> = () => {
 		state.loading,
 	])
 	const count = items.reduce((acc, item) => acc + item.quantity, 0)
-	console.log(loading)
 	return (
 		<CartDrawer>
 			<Button loading={loading} className='group relative'>

@@ -33,11 +33,11 @@ export const findWoks = async (params: GetSearchParams) => {
 								},
 						  }
 						: undefined,
+					categoryId: {
+						in: selectedNoodles,
+					},
 					variations: {
 						some: {
-							wokType: {
-								in: selectedNoodles,
-							},
 							price: {
 								gte: minPrice, // >=
 								lte: maxPrice, // <=

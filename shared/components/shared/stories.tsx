@@ -77,8 +77,8 @@ export const Stories: React.FC<Props> = ({ className }) => {
 									[]
 								}
 								defaultInterval={3000}
-								width={'60vh'}
-								height={'80vh'}
+								width={'500px'}
+								height={'700px'}
 							/>
 						</div>
 					</div>

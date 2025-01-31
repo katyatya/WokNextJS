@@ -27,13 +27,10 @@ async function up() {
 	await prisma.category.createMany({
 		data: [
 			{
-				name: 'Пшеничная лапша',
+				name: 'Яичная лапша',
 			},
 			{
 				name: 'Гречневая лапша',
-			},
-			{
-				name: 'Яичная лапша',
 			},
 			{
 				name: 'Фунчоза',
@@ -64,12 +61,12 @@ async function up() {
 			{
 				name: 'Говядина',
 				price: 159,
-				imageUrl: '',
+				imageUrl: '/assets/images/beef.png',
 			},
 			{
 				name: 'Свинина',
 				price: 109,
-				imageUrl: '',
+				imageUrl: '/assets/images/becon.png',
 			},
 			{
 				name: 'Куриная грудка',
@@ -109,7 +106,7 @@ async function up() {
 	const wok2 = await prisma.product.create({
 		data: {
 			name: 'Удон с говядиной',
-			imageUrl: '/assets/images/udon_chiken.jpg',
+			imageUrl: '/assets/images/udon_pig.jpg',
 			categoryId: 1,
 			ingredients: {
 				connect: [
@@ -145,8 +142,8 @@ async function up() {
 	})
 	const wok4 = await prisma.product.create({
 		data: {
-			name: 'Удон с овощами',
-			imageUrl: '/assets/images/udon_chiken.jpg',
+			name: 'Соба с говядиной',
+			imageUrl: '/assets/images/soba_chicken.jpg',
 			categoryId: 2,
 			ingredients: {
 				connect: [
@@ -162,11 +159,52 @@ async function up() {
 			},
 		},
 	})
+	const wok5 = await prisma.product.create({
+		data: {
+			name: 'Фунчоза с говядиной',
+			imageUrl: '/assets/images/funch_beef.jpg',
+			categoryId: 3,
+			ingredients: {
+				connect: [{ id: 1 }, { id: 2 }, { id: 3 }],
+			},
+		},
+	})
+	const wok6 = await prisma.product.create({
+		data: {
+			name: 'Фунчоза с креветками',
+			imageUrl: '/assets/images/funch_shrimps.jpg',
+			categoryId: 3,
+			ingredients: {
+				connect: [{ id: 1 }, { id: 2 }, { id: 3 }],
+			},
+		},
+	})
 	const lit = await prisma.product.create({
 		data: {
 			name: 'LitEnergy',
 			imageUrl: '/assets/images/lit_zeroshugar.png',
-			categoryId: 3,
+			categoryId: 4,
+		},
+	})
+	const tea1 = await prisma.product.create({
+		data: {
+			name: 'Зеленый чай',
+			imageUrl: '/assets/images/tea.jpg',
+			categoryId: 4,
+		},
+	})
+	const tea2 = await prisma.product.create({
+		data: {
+			name: 'Черный чай',
+			imageUrl: '/assets/images/tea2.jpg',
+			categoryId: 4,
+		},
+	})
+	const pulpy = await prisma.product.create({
+		data: {
+			name: 'Pulpy',
+			imageUrl: '/assets/images/pulpy.jpg',
+			categoryId: 4,
 		},
 	})
 
@@ -203,6 +241,18 @@ async function up() {
 				price: 120,
 			},
 			{
+				productId: tea1.id,
+				price: 170,
+			},
+			{
+				productId: tea2.id,
+				price: 170,
+			},
+			{
+				productId: pulpy.id,
+				price: 190,
+			},
+			{
 				productId: wok2.id,
 				size: 'S',
 				wokType: 1,
@@ -213,6 +263,42 @@ async function up() {
 				size: 'M',
 				wokType: 1,
 				price: 490,
+			},
+			{
+				productId: wok4.id,
+				size: 'S',
+				wokType: 1,
+				price: 370,
+			},
+			{
+				productId: wok4.id,
+				size: 'M',
+				wokType: 1,
+				price: 490,
+			},
+			{
+				productId: wok5.id,
+				size: 'S',
+				wokType: 1,
+				price: 470,
+			},
+			{
+				productId: wok5.id,
+				size: 'M',
+				wokType: 1,
+				price: 590,
+			},
+			{
+				productId: wok6.id,
+				size: 'S',
+				wokType: 1,
+				price: 520,
+			},
+			{
+				productId: wok6.id,
+				size: 'M',
+				wokType: 1,
+				price: 670,
 			},
 			//wok3
 			{

@@ -29,10 +29,9 @@ export const Filters: React.FC<Props> = ({ className }) => {
 				onClickCheckbox={filters.setNoodles}
 				selectedValues={filters.selectedNoodles}
 				items={[
-					{ text: 'Пшеничная', value: '1' },
-					{ text: 'Яичная', value: '2' },
-					{ text: 'Гречневая', value: '3' },
-					{ text: 'Фунчоза', value: '4' },
+					{ text: 'Яичная', value: '1' },
+					{ text: 'Гречневая', value: '2' },
+					{ text: 'Фунчоза', value: '3' },
 				]}
 			/>
 

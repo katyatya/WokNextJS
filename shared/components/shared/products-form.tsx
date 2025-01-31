@@ -42,7 +42,6 @@ export const ProductsForm: React.FC<Props> = ({ product, className }) => {
 	}
 
 	if (isWokForm) {
-		console.log(loading)
 		return (
 			<ChooseWokForm
 				imageUrl={product.imageUrl}

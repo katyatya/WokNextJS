@@ -116,7 +116,6 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
 
 										<span className='font-bold text-lg'>{totalAmount} ₽</span>
 									</div>
-									{/* TODO: ошибка при повторном переходе на /checkout */}
 									<Link href='/checkout'>
 										<Button
 											onClick={() => setRedirecting(true)}

@@ -51,53 +51,7 @@ export async function POST(req: NextRequest) {
 
 		const userCart = await findOrCreateCart(token)
 		const data = (await req.json()) as CreateCartItemValuesDTO
-		// TODO пофиксить баг с добавлением одинаковой пиццы
-		// const findCartArray = await prisma.cartItem.findMany({
-		// 	where: {
-		// 		cartId: userCart.id,
-		// 		productVariationId: data.productVariationId,
-		// 	},
-		// 	include: {
-		// 		ingredients: true,
-		// 	},
-		// })
-		// if (data.ingredients!.length > 0) {
-		// 	findCartArray.filter(item => console.log(item.ingredients.map(i => i.id)))
-		// 	// findCartArray.map(item =>
-		// 	// 	console.log(
-		// 	// 		'find i',
-		// 	// 		item.ingredients.map(i => i.id)
-		// 	// 	)
-		// 	// )
-		// 	// console.log('data i', data.ingredients)
-		// } else {
-		// 	findCartArray.filter(
-		// 		item => item.ingredients.length == data.ingredients?.length
-		// 	)
-		// }
-		// console.log('find', findCartArray)
-		// if (findCartArray.length > 0) {
-		// 	await prisma.cartItem.update({
-		// 		where: {
-		// 			id: findCartArray[0].id,
-		// 		},
-		// 		data: {
-		// 			quantity: findCartArray[0].quantity + 1,
-		// 		},
-		// 	})
-		// } else {
-		// 	//TODO точно игредиенты идут для обычных товаров
-		// 	console.log('in create')
-		// 	console.log(data)
-		// 	await prisma.cartItem.create({
-		// 		data: {
-		// 			cartId: userCart.id,
-		// 			productVariationId: data.productVariationId,
-		// 			quantity: 1,
-		// 			ingredients: { connect: data.ingredients?.map(id => ({ id })) },
-		// 		},
-		// 	})
-		// }
+
 		const findCartItem = await prisma.cartItem.findFirst({
 			where: {
 				cartId: userCart.id,
