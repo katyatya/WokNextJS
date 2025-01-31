@@ -72,12 +72,16 @@ export const ChooseWokForm: React.FC<Props> = ({
 	}
 
 	return (
-		<div className={cn('flex flex-1', className)}>
+		<div className={cn('flex flex-1 max-sm:flex-col h-[90vh] ', className)}>
 			<WokImage imageUrl={imageUrl} size={size} />
-			<div className={'p-7 bg-[#f5f5f5] w-[500px]'}>
+			<div
+				className={
+					'p-7 bg-[#f5f5f5] w-[500px] lg:w-[500px] md:w-[400px] sm:w-[350px] max-sm:w-full max-sm:h-[100%] max-sm:p-2'
+				}
+			>
 				<Title className={'font-bold'} size={'sm'} text={name} />
 				<p className={'text-gray-500'}>{description}</p>
-				<div className={'flex flex-col gap-3 mt-7'}>
+				<div className={'flex flex-col gap-3 max-sm:gap-1 mt-7 max-sm:mt-3'}>
 					<SelectGroup
 						items={wokSizes}
 						selectedValue={size}
@@ -91,10 +95,10 @@ export const ChooseWokForm: React.FC<Props> = ({
 				</div>
 				<div
 					className={
-						'bg-gray-50 p-5 rounded-md max-h-[400px] overflow-auto scrollbar mt-7'
+						'bg-gray-50 p-5 rounded-md max-h-[280px] overflow-auto scrollbar mt-7'
 					}
 				>
-					<div className={'grid grid-cols-3 gap-4'}>
+					<div className={'grid grid-cols-3 gap-4 max-sm:gap-2'}>
 						{ingredients?.map(ingredient => (
 							<IngredientItem
 								key={ingredient.id}
@@ -109,7 +113,7 @@ export const ChooseWokForm: React.FC<Props> = ({
 				</div>
 				<Button
 					loading={loading}
-					className={'mt-7 text-lg'}
+					className={'mt-7 text-lg '}
 					size={'lg'}
 					onClick={handleClickAdd}
 				>

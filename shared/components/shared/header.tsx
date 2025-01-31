@@ -44,7 +44,7 @@ export const Header: React.FC<Props> = ({
 	}, [])
 	return (
 		<header className={cn(' border-b', className)}>
-			<Container className='flex items-center justify-between py-8'>
+			<Container className='flex items-center justify-between py-8 mx-2'>
 				<Link href='/'>
 					<div className='flex items-center gap-3'>
 						<Image src='/noodle.png' alt='logo' width={80} height={80} />

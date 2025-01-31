@@ -40,7 +40,7 @@ export const ProductGroupList: React.FC<Props> = ({
 			<Title text={title} size='lg' className='font-extrabold mb-5' />
 			<div
 				className={cn(
-					'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ',
+					'grid grid-cols-3 place-items-center md:grid-cols-2 lg:grid-cols-3 max-sm:grid-cols-2 gap-6  max-sm:gap-2 ',
 					listClassName
 				)}
 			>
@@ -52,6 +52,7 @@ export const ProductGroupList: React.FC<Props> = ({
 						price={product.variations[0].price}
 						imageUrl={product.imageUrl}
 						ingredients={product.ingredients}
+						className={'max-w-[180px]'}
 					/>
 				))}
 			</div>

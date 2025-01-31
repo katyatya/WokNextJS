@@ -6,7 +6,7 @@ import { cn } from '@/shared/lib/utils'
 import { ProductVariation } from '@prisma/client'
 
 interface Props {
-	imageUrl: string //TODO почему не целый обьект продукта ?
+	imageUrl: string
 	name: string
 	className?: string
 	variations: ProductVariation[]
@@ -31,7 +31,7 @@ export const ChooseProductForm: React.FC<Props> = ({
 					src={imageUrl}
 					alt='logo'
 					className={
-						'relative left-2 top-2 transition-all z-10 duration-300 w-[350px] h-[350px]'
+						'relative left-2 top-2 transition-all z-10 duration-300 w-[150px] h-[350px]'
 					}
 				/>
 			</div>

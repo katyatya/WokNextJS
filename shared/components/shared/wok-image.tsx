@@ -19,10 +19,12 @@ export const WokImage: React.FC<Props> = ({ imageUrl, size, className }) => {
 				src={imageUrl}
 				alt='logo'
 				className={cn(
-					'relative left-2 top-2 transition-all z-10 duration-300',
+					'relative left-2 top-2 max-sm:top-0 transition-all z-10 duration-300 ',
 					{
-						'w-[300px] h-[300px]': size === 'S',
-						'w-[400px] h-[400px]': size === 'M',
+						'lg:w-[300px] md:w-[250px] sm:w-[230px] max-sm:w-[180px] ]':
+							size === 'S',
+						'lg:w-[400px] md:w-[350px] sm:w-[280px]  max-sm:w-[200px]':
+							size === 'M',
 					}
 				)}
 			/>

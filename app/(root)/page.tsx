@@ -19,15 +19,18 @@ export default async function Home({
 		categories.filter(item => item.products.length > 0).length == 0
 	return (
 		<>
-			<Container className='mt-5'>
+			<Container className='mt-5 mx-2'>
 				<Title text='Все товары ' className='font-extrabold' size='lg' />
-			</Container>
-			<Stories />
-			<TopBar
-				categories={categories.filter(category => category.products.length > 0)}
-			/>
 
-			<Container className='mt-10'>
+				<Stories />
+				<TopBar
+					categories={categories.filter(
+						category => category.products.length > 0
+					)}
+				/>
+			</Container>
+
+			<Container className='mt-10 mx-3'>
 				<div className='flex gap-[60px]'>
 					<div className='w-[250px] md:inline-block sm:hidden max-sm:hidden '>
 						<Suspense>
