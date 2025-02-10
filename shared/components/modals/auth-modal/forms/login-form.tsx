@@ -47,7 +47,7 @@ export const LoginForm: React.FC<Props> = ({ onClose }) => {
 	return (
 		<FormProvider {...form}>
 			<form
-				className='flex flex-col gap-5'
+				className='flex flex-col gap-5 max-sm:gap-2'
 				onSubmit={form.handleSubmit(onSubmit)}
 			>
 				<div className='flex justify-between items-center'>
@@ -62,6 +62,7 @@ export const LoginForm: React.FC<Props> = ({ onClose }) => {
 						alt='phone-icon'
 						width={60}
 						height={60}
+						className='max-sm:hidden'
 					/>
 				</div>
 
@@ -70,7 +71,7 @@ export const LoginForm: React.FC<Props> = ({ onClose }) => {
 
 				<Button
 					loading={form.formState.isSubmitting}
-					className='h-12 text-base'
+					className='h-12 text-base max-sm:!h-9'
 					type='submit'
 				>
 					Войти

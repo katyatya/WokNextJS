@@ -24,13 +24,15 @@ export const CheckoutItem: React.FC<Props> = ({
 	onClickRemove,
 }) => {
 	return (
-		<div className={cn('flex items-center justify-between', className)}>
-			<div className='flex items-center gap-5 flex-1'>
+		<div
+			className={cn('flex items-center justify-between flex-wrap ', className)}
+		>
+			<div className='flex items-center gap-5 max-sm:gap-2 flex-1'>
 				<CartItemDetailsImage src={imageUrl} />
 				<CartItemInfo name={name} details={details} />
 			</div>
 			<CartItemDetailsPrice value={price} />
-			<div className='flex items-center gap-5 ml-10'>
+			<div className='flex items-center gap-5 ml-10 max-sm:ml-2 max-sm:gap-2'>
 				<CartItemDetailsCountButton
 					onClick={onClickCountButton}
 					value={quantity}

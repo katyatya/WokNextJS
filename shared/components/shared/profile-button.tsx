@@ -23,7 +23,7 @@ export const ProfileButton: React.FC<Props> = ({
 				<Button
 					onClick={onClickSignIn}
 					variant='outline'
-					className='flex items-center gap-1'
+					className='flex items-center gap-1 max-[400px]:gap-0 max-[400px]:text-xs'
 					loading={loading}
 				>
 					<User size={16} />
@@ -33,7 +33,7 @@ export const ProfileButton: React.FC<Props> = ({
 				<Link href='/profile'>
 					<Button
 						variant='secondary'
-						className='flex items-center gap-2'
+						className='flex items-center gap-2  max-[400px]:gap-0 max-[400px]:text-xs'
 						loading={loading}
 					>
 						<CircleUser size={18} />

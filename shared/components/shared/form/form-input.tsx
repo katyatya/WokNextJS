@@ -71,7 +71,11 @@ export const FormInput: React.FC<Props> = ({
 				</p>
 			)}
 			<div className='relative'>
-				<Input className='h-12 text-md' {...props} {...register(name)} />
+				<Input
+					className='h-12 max-sm:!h-9 text-md'
+					{...props}
+					{...register(name)}
+				/>
 				{value && <ClearButton onClick={onClickClear} />}
 			</div>
 			{errorText && <ErrorText text={errorText} className='mt-2' />}

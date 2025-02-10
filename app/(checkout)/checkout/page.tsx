@@ -82,8 +82,8 @@ export default function CheckoutPage() {
 		<Container>
 			<FormProvider {...form}>
 				<form onSubmit={form.handleSubmit(onSubmit)}>
-					<div className='flex gap-10'>
-						<div className='flex flex-col gap-10 flex-1 mb-20'>
+					<div className='flex max-sm:flex-col gap-10 max-sm:gap-3'>
+						<div className='flex flex-col gap-10  max-sm:gap-3 flex-1 mb-20  max-sm:mb-5'>
 							<CheckoutCart
 								items={items}
 								onClickCountButton={onClickCountButton}
@@ -97,7 +97,7 @@ export default function CheckoutPage() {
 								className={cn({ 'opacity-50 pointer-events-none': loading })}
 							/>
 						</div>
-						<div className='w-[450px]'>
+						<div className='w-[450px] max-sm:flex'>
 							<CheckoutSidebar
 								totalAmount={totalAmount}
 								loading={loading || submitting}

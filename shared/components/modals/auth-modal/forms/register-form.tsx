@@ -49,7 +49,7 @@ export const RegisterForm: React.FC<Props> = ({ onClose, onClickLogin }) => {
 	return (
 		<FormProvider {...form}>
 			<form
-				className='flex flex-col gap-5'
+				className='flex flex-col gap-5 max-sm:gap-2'
 				onSubmit={form.handleSubmit(onSubmit)}
 			>
 				<FormInput name='email' label='E-Mail' required />

@@ -19,8 +19,12 @@ export default async function Home({
 		categories.filter(item => item.products.length > 0).length == 0
 	return (
 		<>
-			<Container className='mt-5 mx-2'>
-				<Title text='Все товары ' className='font-extrabold' size='lg' />
+			<Container className='mt-5 '>
+				<Title
+					text='Все товары '
+					className='font-extrabold  max-[400px]:text-3xl'
+					size='lg'
+				/>
 
 				<Stories />
 				<TopBar
@@ -30,7 +34,7 @@ export default async function Home({
 				/>
 			</Container>
 
-			<Container className='mt-10 mx-3'>
+			<Container className='mt-10 '>
 				<div className='flex gap-[60px]'>
 					<div className='w-[250px] md:inline-block sm:hidden max-sm:hidden '>
 						<Suspense>

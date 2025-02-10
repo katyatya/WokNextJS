@@ -56,24 +56,25 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
 					)}
 
 					{!totalAmount && (
-						<div className='flex flex-col items-center justify-center w-72 mx-auto'>
+						<div className='flex flex-col items-center justify-center w-52 mx-auto'>
 							<Image
 								src='/empty-box.png'
 								alt='Empty cart'
 								width={120}
 								height={120}
+								className='max-sm:h-[90px] max-sm:w-[90px]'
 							/>
 							<Title
 								size='sm'
 								text='Корзина пустая'
-								className='text-center font-bold my-2'
+								className='text-center font-bold my-2 max-sm:my-1'
 							/>
-							<p className='text-center text-neutral-500 mb-5'>
+							<p className='text-center text-neutral-500 mb-5 '>
 								Добавьте хотя бы один товар, чтобы совершить заказ
 							</p>
 
 							<SheetClose>
-								<Button className='w-56 h-12 text-base' size='lg'>
+								<Button className='w-56 h-12 text-base max-sm:!w-40' size='lg'>
 									<ArrowLeft className='w-5 mr-2' />
 									Вернуться назад
 								</Button>

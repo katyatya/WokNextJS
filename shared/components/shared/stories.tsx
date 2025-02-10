@@ -42,7 +42,7 @@ export const Stories: React.FC<Props> = ({ className }) => {
 			<Container
 				className={cn(
 					className,
-					'flex items-center flex-nowrap md:flex-wrap sm:flex-wrap max-sm:flex-wrap justify-between gap-5 lg:gap-4 md:gap-1  max-sm:gap-[2px] my-10'
+					'flex items-center flex-nowrap md:flex-wrap sm:flex-wrap max-sm:flex-wrap justify-between gap-5 lg:gap-4 md:gap-1  max-sm:gap-[2px] my-10 max-sm:my-5'
 				)}
 			>
 				{stories.length == 0 &&

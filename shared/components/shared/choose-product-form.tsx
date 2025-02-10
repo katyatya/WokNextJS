@@ -31,7 +31,7 @@ export const ChooseProductForm: React.FC<Props> = ({
 					src={imageUrl}
 					alt='logo'
 					className={
-						'relative left-2 top-2 transition-all z-10 duration-300 w-[150px] h-[350px]'
+						'relative left-2 top-2 transition-all z-10 duration-300  w-[350px] h-[350px]'
 					}
 				/>
 			</div>
@@ -39,7 +39,7 @@ export const ChooseProductForm: React.FC<Props> = ({
 				<Title className={'font-bold'} size={'sm'} text={name} />
 				<Button
 					loading={loading}
-					className={'mt-10'}
+					className={' w-full mt-10'}
 					size={'lg'}
 					onClick={() => onSubmit?.()}
 				>

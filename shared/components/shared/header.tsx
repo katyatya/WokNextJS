@@ -44,12 +44,20 @@ export const Header: React.FC<Props> = ({
 	}, [])
 	return (
 		<header className={cn(' border-b', className)}>
-			<Container className='flex items-center justify-between py-8 mx-2'>
+			<Container className='flex items-center justify-between py-8 '>
 				<Link href='/'>
 					<div className='flex items-center gap-3'>
-						<Image src='/noodle.png' alt='logo' width={80} height={80} />
+						<Image
+							src='/noodle.png'
+							alt='logo'
+							width={80}
+							height={80}
+							className='max-[410px]:w-[50px]'
+						/>
 						<div>
-							<h1 className='text-2xl uppercase font-black'>Wok</h1>
+							<h1 className='text-2xl max-[410px]:text-base uppercase font-black'>
+								Wok
+							</h1>
 							<p className='text-sm text-gray-400 leading-3'>Master</p>
 						</div>
 					</div>
@@ -60,7 +68,10 @@ export const Header: React.FC<Props> = ({
 					</div>
 				)}
 				<div className='flex items-center gap-2'>
-					<ProfileButton onClickSignIn={() => setOpenAuthModal(true)} />
+					<ProfileButton
+						onClickSignIn={() => setOpenAuthModal(true)}
+						className='max-[410px]:'
+					/>
 					<AuthModal
 						open={openAuthModal}
 						onClose={() => setOpenAuthModal(false)}
