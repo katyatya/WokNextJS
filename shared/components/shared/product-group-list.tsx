@@ -44,7 +44,7 @@ export const ProductGroupList: React.FC<Props> = ({
 			/>
 			<div
 				className={cn(
-					'grid grid-cols-3 max-sm:place-items-center max-[400px]:items-start md:grid-cols-2 lg:grid-cols-3 max-sm:grid-cols-2 gap-6  max-sm:gap-2 ',
+					'grid grid-cols-3 max-sm:place-items-center max-[400px]:items-start md:grid-cols-2 lg:grid-cols-3 max-sm:grid-cols-2 gap-6 max-sm:gap-2 mx-2',
 					listClassName
 				)}
 			>

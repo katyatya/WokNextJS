@@ -56,12 +56,12 @@ export const ProfileForm: React.FC<Props> = ({ data }) => {
 	}
 
 	return (
-		<Container className='my-10'>
+		<Container className='my-10 mx-3'>
 			<Title text={`Личные данные `} size='md' className='font-bold' />
 
 			<FormProvider {...form}>
 				<form
-					className='flex flex-col gap-5 w-96 mt-10'
+					className='flex flex-col gap-5 w-96 mt-10 max-sm:gap-2'
 					onSubmit={form.handleSubmit(onSubmit)}
 				>
 					<FormInput name='email' label='E-Mail' required />
@@ -81,7 +81,7 @@ export const ProfileForm: React.FC<Props> = ({ data }) => {
 
 					<Button
 						disabled={form.formState.isSubmitting}
-						className='text-base mt-10 p-5'
+						className='text-base mt-10  max-sm:mt-4 p-5 max-sm:p-3'
 						type='submit'
 					>
 						Сохранить
