@@ -95,10 +95,10 @@ export const ChooseWokForm: React.FC<Props> = ({
 				</div>
 				<div
 					className={
-						'bg-gray-50 p-5 rounded-md max-h-[280px] overflow-auto scrollbar mt-7'
+						'bg-gray-50 p-5 rounded-md max-h-[280px] max-[400px]:max-h-[130px] overflow-auto scrollbar mt-7'
 					}
 				>
-					<div className={'grid grid-cols-3 gap-4 max-sm:gap-2'}>
+					<div className={'grid grid-cols-3 gap-4 max-sm:gap-1'}>
 						{ingredients?.map(ingredient => (
 							<IngredientItem
 								key={ingredient.id}
